@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F4D310E2-84F6-44A1-A3FF-A021C4B6EB35}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dogs.Core", "Dogs.Core", "{9C47777F-0890-42A5-B93B-AA2B9C1F24A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dogs.Infrastructure", "Dogs.Infrastructure", "{746423C0-29FC-407E-AB66-48A9556D53F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dogs.Application", "Dogs.Application", "{E2E4C9A4-445E-4719-BCE3-11A0C760978E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dogs.UI", "Dogs.UI", "{6A7D53B2-277C-4ACB-ACC1-101E757D221A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dogs.Tests", "Dogs.Tests", "{92387987-FFF3-493F-9548-5F7F895FD86B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dogs.Core", "src\Dogs.Core\Dogs.Core\Dogs.Core.csproj", "{3104D803-2374-4B86-ABEC-4CE3E1A0B82C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3104D803-2374-4B86-ABEC-4CE3E1A0B82C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3104D803-2374-4B86-ABEC-4CE3E1A0B82C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3104D803-2374-4B86-ABEC-4CE3E1A0B82C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3104D803-2374-4B86-ABEC-4CE3E1A0B82C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9C47777F-0890-42A5-B93B-AA2B9C1F24A9} = {F4D310E2-84F6-44A1-A3FF-A021C4B6EB35}
+		{746423C0-29FC-407E-AB66-48A9556D53F7} = {F4D310E2-84F6-44A1-A3FF-A021C4B6EB35}
+		{E2E4C9A4-445E-4719-BCE3-11A0C760978E} = {F4D310E2-84F6-44A1-A3FF-A021C4B6EB35}
+		{6A7D53B2-277C-4ACB-ACC1-101E757D221A} = {F4D310E2-84F6-44A1-A3FF-A021C4B6EB35}
+		{92387987-FFF3-493F-9548-5F7F895FD86B} = {F4D310E2-84F6-44A1-A3FF-A021C4B6EB35}
+		{3104D803-2374-4B86-ABEC-4CE3E1A0B82C} = {9C47777F-0890-42A5-B93B-AA2B9C1F24A9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F56B3C94-2337-4984-91C5-A1F2B4D76487}
+	EndGlobalSection
+EndGlobal
