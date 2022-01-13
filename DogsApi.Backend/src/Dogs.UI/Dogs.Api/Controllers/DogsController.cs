@@ -31,7 +31,7 @@ namespace Dogs.Api.Controllers
         [HttpGet("dogs")]
         [ThrottleFilterAttribute(Name = "Throttle", Message = "You must wait {n} seconds before accessing this url again.", Seconds = 1)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<Dog[]> GetFriendList()
+        public async Task<Dog[]> GetDogList()
         {
             return await _mediator.Send(new GetDogsListQuery());
         }
@@ -40,7 +40,7 @@ namespace Dogs.Api.Controllers
         [HttpPost("dog")]
         [ThrottleFilterAttribute(Name = "Throttle", Message = "You must wait {n} seconds before accessing this url again.", Seconds = 1)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<Guid> CreateFriend(Application.Dogs.Commands.CreateDog.CreateDogCommand cmd)
+        public async Task<Guid> CreateDog(Application.Dogs.Commands.CreateDog.CreateDogCommand cmd)
         {
             return await _mediator.Send(cmd);
         }
