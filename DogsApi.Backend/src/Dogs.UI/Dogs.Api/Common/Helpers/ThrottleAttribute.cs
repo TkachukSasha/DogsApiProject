@@ -11,10 +11,7 @@ namespace Dogs.Api.Common.Helpers
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     public class ThrottleFilterAttribute : ActionFilterAttribute
     {
-        public ThrottleFilterAttribute()
-        {
-
-        }
+        public ThrottleFilterAttribute(){}
         public string Name { get; set; }
         public int Seconds { get; set; }
         public string Message { get; set; }
@@ -43,7 +40,7 @@ namespace Dogs.Api.Common.Helpers
             if (forbidExecute)
             {
                 if (String.IsNullOrEmpty(Message))
-                    Message = $"You may only perform this action every {Seconds}ms.";
+                    Message = $"You may only perform this action every {Seconds}sec.";
 
                 c.Result = new ContentResult { Content = Message, ContentType = "text/plain" };
                 c.HttpContext.Response.StatusCode = StatusCodes.Status429TooManyRequests;

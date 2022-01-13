@@ -11,6 +11,7 @@ namespace Dogs.Infrastructure.EntitiesConfiguration
             builder.HasKey(dog => dog.Id);
             builder.HasIndex(dog => dog.Id).IsUnique();
             builder.Property(dog => dog.Name).IsRequired().HasMaxLength(25);
+            builder.HasIndex(dog => dog.Name).IsUnique();
             builder.Property(dog => dog.Color).IsRequired().HasMaxLength(25);
             builder.Property(dog => dog.TailLenght).IsRequired();
             builder.Property(dog => dog.Weight).IsRequired();
