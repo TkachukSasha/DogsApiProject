@@ -1,3 +1,6 @@
+using Dogs.Application.Common.Contracts;
+using Dogs.Application.Common.Mapping;
+using Dogs.Infrastructure.DI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +13,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Dogs.Api
@@ -26,7 +30,24 @@ namespace Dogs.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddAutoMapper(config =>
+            {
+                config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
+                config.AddProfile(new AssemblyMappingProfile(typeof(IDogsDbContext).Assembly));
+            });
+
+            services.AddPersistence(Configuration);
             services.AddControllers();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", policy =>
+                {
+                    policy.AllowAnyHeader();
+                    policy.AllowAnyMethod();
+                    policy.AllowAnyOrigin();
+                });
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Dogs.Api", Version = "v1" });
@@ -45,8 +66,7 @@ namespace Dogs.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseAuthorization();
+            app.UseCors("AllowAll");
 
             app.UseEndpoints(endpoints =>
             {

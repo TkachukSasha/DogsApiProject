@@ -1,11 +1,7 @@
 ﻿using Dogs.Infrastructure.Data;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Dogs.Test.Common
+namespace Dogs.Test.Common.Helpers
 {
     public abstract class TestCommandBase : IDisposable
     {
@@ -13,12 +9,12 @@ namespace Dogs.Test.Common
 
         public TestCommandBase()
         {
-            Context = DogsDbContextFactory.Create();
+            Context = DogsContextFactory.Create();
         }
 
         public void Dispose()
         {
-            NotesContextFactory.Destroy(Context);
+            DogsContextFactory.Destroy(Context);
         }
     }
 }

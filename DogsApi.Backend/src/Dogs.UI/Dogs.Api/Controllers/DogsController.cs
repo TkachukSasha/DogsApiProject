@@ -1,4 +1,5 @@
-﻿using Dogs.Application.Dogs.Queries.GetDogsList;
+﻿using Dogs.Api.Common.Helpers;
+using Dogs.Application.Dogs.Queries.GetDogsList;
 using Dogs.Core.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -20,6 +21,7 @@ namespace Dogs.Api.Controllers
         }
 
         [HttpGet("ping")]
+        [ThrottleFilterAttribute(Name = "Throttle", Message = "You must wait {n} seconds before accessing this url again.", Seconds = 1)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<string> Ping()
         {
@@ -27,6 +29,7 @@ namespace Dogs.Api.Controllers
         }
 
         [HttpGet("dogs")]
+        [ThrottleFilterAttribute(Name = "Throttle", Message = "You must wait {n} seconds before accessing this url again.", Seconds = 1)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<Dog[]> GetFriendList()
         {
@@ -35,6 +38,7 @@ namespace Dogs.Api.Controllers
 
 
         [HttpPost("dog")]
+        [ThrottleFilterAttribute(Name = "Throttle", Message = "You must wait {n} seconds before accessing this url again.", Seconds = 1)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<Guid> CreateFriend(Application.Dogs.Commands.CreateDog.CreateDogCommand cmd)
         {
