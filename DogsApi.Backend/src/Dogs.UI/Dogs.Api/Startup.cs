@@ -1,4 +1,6 @@
+using Dogs.Api.Common.Middleware;
 using Dogs.Application.Common.Contracts;
+using Dogs.Application.Common.DI;
 using Dogs.Application.Common.Mapping;
 using Dogs.Infrastructure.DI;
 using Microsoft.AspNetCore.Builder;
@@ -36,6 +38,7 @@ namespace Dogs.Api
                 config.AddProfile(new AssemblyMappingProfile(typeof(IDogsDbContext).Assembly));
             });
 
+            services.AddApplication();
             services.AddPersistence(Configuration);
             services.AddControllers();
 
@@ -63,6 +66,7 @@ namespace Dogs.Api
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Dogs.Api v1"));
             }
 
+            app.UseCustomExceptionHandler();
             app.UseHttpsRedirection();
 
             app.UseRouting();
